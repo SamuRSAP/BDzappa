@@ -1,0 +1,24 @@
+{
+    "dev": {
+        "app_function": "proyecto.app",
+        "aws_region": "us-east-1",
+        "profile_name": "default",
+        "project_name": "zappa-dev",
+        "runtime": "python3.10",
+        "keep_warm": false,
+        "s3_bucket": "zappa-g3knv8syo",
+        "apigateway_enabled": false,
+        "manage_roles": false,
+        "role_name": "LabRole",
+        "events": [
+          {
+            "function": "proyecto.app",
+            "event_source": {
+                  "arn":  "arn:aws:s3:::samueldata",
+                  "events": [
+                    "s3:ObjectCreated:*"
+                  ]
+               }
+            }]
+    }
+}
